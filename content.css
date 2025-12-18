@@ -1,0 +1,249 @@
+/* nhentai Downloader Extension Styles - Enhanced */
+
+.nhd-toolbar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.nhd-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nhd-btn-primary {
+    background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+    color: white;
+}
+
+.nhd-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(233, 69, 96, 0.4);
+}
+
+.nhd-btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nhd-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nhd-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Enhanced checkbox overlay */
+.nhd-checkbox-overlay {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 100;
+}
+
+.nhd-checkbox {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.nhd-checkbox:hover {
+    border-color: #e94560;
+    background: rgba(233, 69, 96, 0.4);
+    transform: scale(1.1);
+}
+
+.nhd-checkbox.checked {
+    background: linear-gradient(135deg, #e94560, #ff6b6b);
+    border-color: #e94560;
+    animation: checkPop 0.3s ease;
+}
+
+@keyframes checkPop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.nhd-checkbox.checked::after {
+    content: '✓';
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Enhanced progress modal */
+.nhd-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+}
+
+.nhd-modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 24px;
+    padding: 40px;
+    width: 450px;
+    max-width: 90%;
+    color: white;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nhd-modal h2 {
+    margin-bottom: 24px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.nhd-progress-bar {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.nhd-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #e94560, #ff6b6b);
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.nhd-progress-text {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.nhd-progress-detail {
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.nhd-cancel-btn {
+    margin-top: 24px;
+    padding: 12px 32px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nhd-cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #e94560;
+}
+
+/* Toast notification */
+.nhd-toast {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideIn 0.3s ease;
+    border-left: 4px solid #2ed573;
+}
+
+.nhd-toast.error {
+    border-left-color: #e94560;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Keyboard shortcut hint */
+.nhd-shortcut-hint {
+    position: fixed;
+    bottom: 100px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    z-index: 99998;
+    backdrop-filter: blur(4px);
+}
+
+.nhd-shortcut-hint kbd {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+/* Single gallery page download button */
+.nhd-single-download {
+    margin-top: 16px;
+}
+
+/* Gallery hover effect when selected */
+.gallery:has(.nhd-checkbox.checked) {
+    outline: 3px solid #e94560;
+    outline-offset: -3px;
+}

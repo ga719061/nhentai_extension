@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 340px;
+      padding: 24px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .header h1 {
+      font-size: 18px;
+      background: linear-gradient(90deg, #e94560, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #e94560, #ff6b6b);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      background: rgba(233, 69, 96, 0.1);
+      border: 1px solid rgba(233, 69, 96, 0.3);
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .status.active {
+      background: rgba(46, 213, 115, 0.1);
+      border-color: rgba(46, 213, 115, 0.3);
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #e94560;
+    }
+
+    .status.active .status-dot {
+      background: #2ed573;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    .info-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    .info-box h3 {
+      font-size: 13px;
+      opacity: 0.6;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info-box p {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .shortcuts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .shortcut {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .shortcut kbd {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 11px;
+      opacity: 0.4;
+      margin-top: 20px;
+    }
+
+    a {
+      color: #e94560;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">N</div>
+    <h1>nhentai Downloader</h1>
+  </div>
+
+  <div id="status" class="status">
+    <div class="status-dot"></div>
+    <span>請前往 nhentai 頁面</span>
+  </div>
+
+  <div class="info-box">
+    <h3>⌨️ 快捷鍵</h3>
+    <div class="shortcuts">
+      <div class="shortcut"><kbd>A</kbd> 全選 / 取消全選</div>
+      <div class="shortcut"><kbd>D</kbd> 下載已選</div>
+      <div class="shortcut"><kbd>Esc</kbd> 取消選擇</div>
+      <div class="shortcut"><kbd>Esc</kbd> 取消下載</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h3>📖 使用說明</h3>
+    <p>
+      1. 前往收藏夾勾選漫畫<br>
+      2. 點擊下載或按 <kbd>D</kbd><br>
+      3. 等待 ZIP 打包完成
+    </p>
+  </div>
+
+  <div class="footer">
+    v1.3.0 • 所有圖片自動轉換為 JPG
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

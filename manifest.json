@@ -1,0 +1,62 @@
+{
+    "manifest_version": 3,
+    "name": "nhentai Favorites Downloader",
+    "version": "1.2.0",
+    "description": "批量下載 nhentai 收藏夾中的漫畫並打包為 ZIP",
+    "permissions": [
+        "activeTab",
+        "downloads",
+        "storage"
+    ],
+    "host_permissions": [
+        "*://*.nhentai.net/*",
+        "*://i.nhentai.net/*",
+        "*://i1.nhentai.net/*",
+        "*://i2.nhentai.net/*",
+        "*://i3.nhentai.net/*",
+        "*://i4.nhentai.net/*",
+        "*://i5.nhentai.net/*",
+        "*://i7.nhentai.net/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.nhentai.net/favorites/*",
+                "*://*.nhentai.net/g/*"
+            ],
+            "js": [
+                "lib/jszip.min.js",
+                "content.js"
+            ],
+            "css": [
+                "content.css"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "lib/*"
+            ],
+            "matches": [
+                "*://*.nhentai.net/*"
+            ]
+        }
+    ]
+}
