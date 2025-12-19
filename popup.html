@@ -11,8 +11,7 @@
     }
 
     body {
-      width: 340px;
-      padding: 24px;
+      width: 380px;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
       color: #fff;
@@ -22,7 +21,8 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 24px;
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .header h1 {
@@ -44,6 +44,43 @@
       font-size: 18px;
     }
 
+    /* Tab 導航 */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tab {
+      flex: 1;
+      padding: 14px;
+      text-align: center;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+      opacity: 0.6;
+    }
+
+    .tab:hover {
+      opacity: 0.8;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab.active {
+      opacity: 1;
+      border-bottom-color: #e94560;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px 24px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* 狀態頁 */
     .status {
       display: flex;
       align-items: center;
@@ -73,15 +110,8 @@
     }
 
     @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.5;
-      }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
 
     .info-box {
@@ -125,16 +155,230 @@
       font-size: 11px;
     }
 
+    /* 設定頁 */
+    .setting-group {
+      margin-bottom: 20px;
+    }
+
+    .setting-group label {
+      display: block;
+      font-size: 12px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .setting-group input[type="range"] {
+      width: 100%;
+      accent-color: #e94560;
+    }
+
+    .setting-group select {
+      width: 100%;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: white;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .setting-group select option {
+      background: #1a1a2e;
+    }
+
+    .setting-value {
+      text-align: right;
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .setting-row:last-child {
+      border-bottom: none;
+    }
+
+    .toggle {
+      position: relative;
+      width: 44px;
+      height: 24px;
+    }
+
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.2);
+      transition: 0.3s;
+      border-radius: 24px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    .toggle input:checked + .toggle-slider {
+      background: #e94560;
+    }
+
+    .toggle input:checked + .toggle-slider:before {
+      transform: translateX(20px);
+    }
+
+    /* 歷史記錄頁 */
+    .history-list {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .history-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .history-icon {
+      font-size: 18px;
+    }
+
+    .history-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .history-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .history-meta {
+      font-size: 11px;
+      opacity: 0.5;
+      margin-top: 2px;
+    }
+
+    .history-delete {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .history-delete:hover {
+      color: #e94560;
+      background: rgba(233, 69, 96, 0.2);
+    }
+
+    .history-actions {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-danger {
+      background: rgba(233, 69, 96, 0.2);
+      color: #ff6b6b;
+      border: 1px solid rgba(233, 69, 96, 0.3);
+    }
+
+    .btn-danger:hover {
+      background: rgba(233, 69, 96, 0.3);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      opacity: 0.5;
+    }
+
+    .empty-state .icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
     .footer {
       text-align: center;
       font-size: 11px;
       opacity: 0.4;
-      margin-top: 20px;
+      padding: 16px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     a {
       color: #e94560;
       text-decoration: none;
+    }
+
+    /* 滾動條 */
+    .history-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .history-list::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .history-list::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
     }
   </style>
 </head>
@@ -145,32 +389,95 @@
     <h1>nhentai Downloader</h1>
   </div>
 
-  <div id="status" class="status">
-    <div class="status-dot"></div>
-    <span>請前往 nhentai 頁面</span>
+  <div class="tabs">
+    <div class="tab active" data-tab="status">📊 狀態</div>
+    <div class="tab" data-tab="settings">⚙️ 設定</div>
+    <div class="tab" data-tab="history">📜 歷史</div>
   </div>
 
-  <div class="info-box">
-    <h3>⌨️ 快捷鍵</h3>
-    <div class="shortcuts">
-      <div class="shortcut"><kbd>A</kbd> 全選 / 取消全選</div>
-      <div class="shortcut"><kbd>D</kbd> 下載已選</div>
-      <div class="shortcut"><kbd>Esc</kbd> 取消選擇</div>
-      <div class="shortcut"><kbd>Esc</kbd> 取消下載</div>
+  <!-- 狀態頁 -->
+  <div id="tab-status" class="tab-content active">
+    <div id="status" class="status">
+      <div class="status-dot"></div>
+      <span>請前往 nhentai 頁面</span>
+    </div>
+
+    <div class="info-box">
+      <h3>⌨️ 快捷鍵</h3>
+      <div class="shortcuts">
+        <div class="shortcut"><kbd>A</kbd> 全選 / 取消</div>
+        <div class="shortcut"><kbd>D</kbd> 下載已選</div>
+        <div class="shortcut"><kbd>Q</kbd> 開關佇列</div>
+        <div class="shortcut"><kbd>Esc</kbd> 取消</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>📖 使用說明</h3>
+      <p>
+        1. 前往收藏夾/搜尋頁勾選漫畫<br>
+        2. 點擊下載或按 <kbd>D</kbd><br>
+        3. 等待 ZIP 打包完成
+      </p>
     </div>
   </div>
 
-  <div class="info-box">
-    <h3>📖 使用說明</h3>
-    <p>
-      1. 前往收藏夾勾選漫畫<br>
-      2. 點擊下載或按 <kbd>D</kbd><br>
-      3. 等待 ZIP 打包完成
-    </p>
+  <!-- 設定頁 -->
+  <div id="tab-settings" class="tab-content">
+    <div class="setting-group">
+      <label>並行下載數量</label>
+      <input type="range" id="setting-concurrent" min="1" max="10" value="5">
+      <div class="setting-value" id="concurrent-value">5 個同時下載</div>
+    </div>
+
+    <div class="setting-group">
+      <label>JPEG 壓縮品質</label>
+      <input type="range" id="setting-quality" min="50" max="100" value="90">
+      <div class="setting-value" id="quality-value">90%</div>
+    </div>
+
+    <div class="setting-group">
+      <label>輸出格式</label>
+      <select id="setting-format">
+        <option value="jpg">JPG（統一格式）</option>
+        <option value="png">PNG（無損）</option>
+        <option value="original">原始格式</option>
+      </select>
+    </div>
+
+    <div class="setting-row">
+      <span>批量下載時建立子資料夾</span>
+      <label class="toggle">
+        <input type="checkbox" id="setting-subfolders" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-row">
+      <span>下載完成時顯示通知</span>
+      <label class="toggle">
+        <input type="checkbox" id="setting-notifications" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- 歷史記錄頁 -->
+  <div id="tab-history" class="tab-content">
+    <div class="history-actions">
+      <button class="btn btn-secondary" id="export-history">📤 匯出</button>
+      <button class="btn btn-danger" id="clear-history">🗑️ 清除全部</button>
+    </div>
+    <div class="history-list" id="history-list">
+      <div class="empty-state">
+        <div class="icon">📭</div>
+        <div>尚無下載記錄</div>
+      </div>
+    </div>
   </div>
 
   <div class="footer">
-    v1.3.0 • 所有圖片自動轉換為 JPG
+    v2.0.0 • 支援佇列管理 • 歷史記錄
   </div>
 
   <script src="popup.js"></script>

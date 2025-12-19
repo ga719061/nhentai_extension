@@ -1,12 +1,13 @@
 {
     "manifest_version": 3,
     "name": "nhentai Favorites Downloader",
-    "version": "1.2.0",
-    "description": "批量下載 nhentai 收藏夾中的漫畫並打包為 ZIP",
+    "version": "2.0.0",
+    "description": "批量下載 nhentai 收藏夾中的漫畫並打包為 ZIP - 支援佇列管理、歷史記錄、多頁面類型",
     "permissions": [
         "activeTab",
         "downloads",
-        "storage"
+        "storage",
+        "contextMenus"
     ],
     "host_permissions": [
         "*://*.nhentai.net/*",
@@ -30,7 +31,14 @@
         {
             "matches": [
                 "*://*.nhentai.net/favorites/*",
-                "*://*.nhentai.net/g/*"
+                "*://*.nhentai.net/g/*",
+                "*://*.nhentai.net/search/*",
+                "*://*.nhentai.net/tag/*",
+                "*://*.nhentai.net/artist/*",
+                "*://*.nhentai.net/character/*",
+                "*://*.nhentai.net/parody/*",
+                "*://*.nhentai.net/group/*",
+                "*://*.nhentai.net/"
             ],
             "js": [
                 "lib/jszip.min.js",
