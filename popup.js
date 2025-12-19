@@ -83,7 +83,6 @@ async function loadSettings() {
       document.getElementById('setting-quality').value = settings.imageQuality;
       document.getElementById('quality-value').textContent = `${settings.imageQuality}%`;
 
-      document.getElementById('setting-format').value = settings.outputFormat;
       document.getElementById('setting-subfolders').checked = settings.createSubfolders;
       document.getElementById('setting-notifications').checked = settings.showNotifications;
 
@@ -110,11 +109,6 @@ function setupSettingsListeners() {
   });
   qualityInput.addEventListener('change', () => {
     saveSettings({ imageQuality: parseInt(qualityInput.value) });
-  });
-
-  // 格式
-  document.getElementById('setting-format').addEventListener('change', (e) => {
-    saveSettings({ outputFormat: e.target.value });
   });
 
   // 子資料夾
